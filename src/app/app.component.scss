@@ -59,3 +59,10 @@
     from {bottom: 30px; opacity: 1;}
     to {bottom: 0; opacity: 0;}
   }
+
+  button.btn.btn-primary {
+    margin-left: 40%;
+    position: absolute;
+    padding: 15px;
+    width: 220px;
+  }
