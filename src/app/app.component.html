@@ -5,10 +5,16 @@
   <source src="../assets/video/Vingadores - Ultimato - É o fim.mp4" type="video/ogg">
   Your browser does not support HTML5 video.
 </video> -->
-  <div class="embed-responsive embed-responsive-21by9">
+  <div class="embed-responsive embed-responsive-21by9 rounded">
       <video #video  [autoplay]="true" (timeupdate)="setCurrentTime($event)" class="video">
           <source id="video1" src="{{vingadores}}" type="video/mp4" />
           Browser not supported
         </video>
-    </div>
+      </div>
+      <button (click)="showSnack()">Show Snackbar</button>
+      <div id="snackbar">Snack 1</div>
+      <button (click)="showSnack2()">Show Snackbar</button>
+      <div id="snackbar2">Snack 2</div>
+      <button (click)="showSnack3()">Show Snackbar</button>
+      <div id="snackbar3">Snack 3</div>
 <router-outlet></router-outlet>
