@@ -1,19 +1,15 @@
-<!-- <button (click)="gettime()" type="button">Get video length</button><br> -->
-
-<!-- <video id="myVideo" width="320" height="176" controls>
-  <source src="../assets/video/Vingadores - Ultimato - É o fim.mp4" type="video/mp4">
-  <source src="../assets/video/Vingadores - Ultimato - É o fim.mp4" type="video/ogg">
-  Your browser does not support HTML5 video.
-</video> -->
 <div class="embed-responsive embed-responsive-21by9 rounded">
   <video #video controls (timeupdate)="setCurrentTime($event)" class="video">
-    <source id="video1" src="{{vingadores}}" type="video/mp4" />
+    <source id="video1" src="{{videoInicio}}" type="video/mp4" />
     Browser not supported
   </video>
 </div>
-<div id="snackbar">{{primeiraOpcao}}</div>
-<div id="snackbar2">{{segundaOpcao}}</div>
+
+<div id="snackbar">{{segundaOpcao}}</div>
+<div id="snackbar2">{{primeiraOpcao}}</div>
+
 <button type="button" class="btn btn-primary">
   Total de votos <span class="badge badge-light">{{totalVotos}}</span>
 </button>
+
 <router-outlet></router-outlet>

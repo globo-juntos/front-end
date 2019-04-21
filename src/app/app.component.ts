@@ -16,15 +16,16 @@ export class AppComponent {
 
   public video: ElementRef;
   currentTime: any;
-  nexVideo = 29.910418;
+  nexVideo = 10.000000;
   validate = false;
-  vingadores = "../assets/video/Vingadores - Ultimato - É o fim.mp4"
+  videoInicio = "../assets/video/video.MOV"
   url = "https://globojuntos.firebaseio.com"
   totalVotos: number;
-  primeiraOpcao = 'esta é a opção 1'
-  segundaOpcao = 'esta é a opção 2'
-  primeiroOpcaoVoto: number;
-  segundoOpcaoVoto: number;
+  segundaOpcao = 'Confessionário'
+  primeiraOpcao = 'Pscina'
+  votoPscina: number;
+  votoConfessionario: number;
+  interval;
 
 
   ngOnInit() {
@@ -33,14 +34,27 @@ export class AppComponent {
       this.showSnack()
       this.showSnack2()
     }, 8000);
-    this.getVote()
+
+
+    this.startTimer()
   }
+
+  startTimer() {
+    this.interval = setInterval(() => {
+      this.getVote()
+    }, 1000)
+  }
+
+  pauseTimer() {
+    clearInterval(this.interval);
+  }
+
   getVote() {
     this.http.get(this.url + '/votos.json').subscribe((data: any) => {
       7
       this.totalVotos = data.op1 + data.op2
-      this.primeiroOpcaoVoto = data.op1;
-      this.segundoOpcaoVoto = data.op2;
+      this.votoPscina = data.op1;
+      this.votoConfessionario = data.op2;
       console.log('data', data)
     })
 
@@ -48,12 +62,15 @@ export class AppComponent {
 
   setCurrentTime(data) {
     this.currentTime = data.target.currentTime;
+    console.log(this.currentTime)
     if (this.currentTime > this.nexVideo) {
-      if (this.primeiroOpcaoVoto > this.segundoOpcaoVoto) {
-        this.video.nativeElement.src = "../assets/video/Vingadores - Ultimato - É o fim.mp4";
+      if (this.votoPscina > this.votoConfessionario) {
+        this.video.nativeElement.src = "../assets/video/piscinaVideo.MOV";
       }
-      else if (this.primeiroOpcaoVoto < this.segundoOpcaoVoto) {
-        this.video.nativeElement.src = "../assets/video/Vingadores - Ultimato - É o fim.mp4";
+      else if (this.votoConfessionario > this.votoPscina) {
+        this.video.nativeElement.src = "../assets/video/confessionarioVideo.MOV";
+      } else {
+        this.video.nativeElement.src = "../assets/video/piscinaVideo.MOV";
       }
 
     }
@@ -62,11 +79,11 @@ export class AppComponent {
   showSnack() {
     var x = document.getElementById("snackbar");
     x.className = "show";
-    setTimeout(function () { x.className = x.className.replace("show", ""); }, 22000);
+    setTimeout(function () { x.className = x.className.replace("show", ""); }, 15000);
   }
   showSnack2() {
     var x = document.getElementById("snackbar2");
     x.className = "show";
-    setTimeout(function () { x.className = x.className.replace("show", ""); }, 22000);
+    setTimeout(function () { x.className = x.className.replace("show", ""); }, 15000);
   }
 }
