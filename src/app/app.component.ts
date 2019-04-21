@@ -12,7 +12,6 @@ export class AppComponent {
     setTimeout(() => {
       this.showSnack()
       this.showSnack2()
-      this.showSnack3()
     }, 8000);
 
   }
@@ -44,11 +43,6 @@ export class AppComponent {
   }
   showSnack2() {
     var x = document.getElementById("snackbar2");
-    x.className = "show";
-    setTimeout(function () { x.className = x.className.replace("show", ""); }, 22000);
-  }
-  showSnack3() {
-    var x = document.getElementById("snackbar3");
     x.className = "show";
     setTimeout(function () { x.className = x.className.replace("show", ""); }, 22000);
   }
