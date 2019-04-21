@@ -1,0 +1,15 @@
+<!-- <button (click)="gettime()" type="button">Get video length</button><br> -->
+
+<!-- <video id="myVideo" width="320" height="176" controls>
+  <source src="../assets/video/Vingadores - Ultimato - É o fim.mp4" type="video/mp4">
+  <source src="../assets/video/Vingadores - Ultimato - É o fim.mp4" type="video/ogg">
+  Your browser does not support HTML5 video.
+</video> -->
+<div>
+  <video #video [autoplay]="true" (timeupdate)="setCurrentTime($event)" class="video">
+    <source id="video1" src="{{vingadores}}" type="video/mp4" />
+    Browser not supported
+  </video>
+</div>
+
+<router-outlet></router-outlet>
