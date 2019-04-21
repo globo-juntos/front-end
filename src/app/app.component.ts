@@ -22,8 +22,8 @@ export class AppComponent {
   url = "https://globojuntos.firebaseio.com"
   totalVotos: number;
   segundaOpcao = 'Confessionário'
-  primeiraOpcao = 'Pscina'
-  votoPscina: number;
+  primeiraOpcao = 'Piscina'
+  votoPiscina: number;
   votoConfessionario: number;
   interval;
 
@@ -53,7 +53,7 @@ export class AppComponent {
     this.http.get(this.url + '/votos.json').subscribe((data: any) => {
       7
       this.totalVotos = data.op1 + data.op2
-      this.votoPscina = data.op1;
+      this.votoPiscina = data.op1;
       this.votoConfessionario = data.op2;
       console.log('data', data)
     })
@@ -64,10 +64,10 @@ export class AppComponent {
     this.currentTime = data.target.currentTime;
     console.log(this.currentTime)
     if (this.currentTime > this.nexVideo) {
-      if (this.votoPscina > this.votoConfessionario) {
+      if (this.votoPiscina > this.votoConfessionario) {
         this.video.nativeElement.src = "../assets/video/piscinaVideo.MOV";
       }
-      else if (this.votoConfessionario > this.votoPscina) {
+      else if (this.votoConfessionario > this.votoPiscina) {
         this.video.nativeElement.src = "../assets/video/confessionarioVideo.MOV";
       } else {
         this.video.nativeElement.src = "../assets/video/piscinaVideo.MOV";
