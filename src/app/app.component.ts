@@ -1,4 +1,4 @@
-import { Component, ViewChild, ElementRef } from '@angular/core';
+import { Component, ViewChild, ElementRef, OnInit } from '@angular/core';
 
 @Component({
   selector: 'app-root',
@@ -6,6 +6,16 @@ import { Component, ViewChild, ElementRef } from '@angular/core';
   styleUrls: ['./app.component.scss']
 })
 export class AppComponent {
+
+  ngOnInit() {
+
+    setTimeout(() => {
+      this.showSnack()
+      this.showSnack2()
+      this.showSnack3()
+    }, 8000);
+
+  }
 
   @ViewChild('video')
 
@@ -18,11 +28,6 @@ export class AppComponent {
 
   setCurrentTime(data) {
     this.currentTime = data.target.currentTime;
-    setTimeout(()=>{
-      this.showSnack()
-      this.showSnack2()
-      this.showSnack3()
- }, 3000);
     if (this.currentTime > this.nexVideo) {
       this.validate = true;
       this.video.nativeElement.src = "../assets/video/Vingadores - Ultimato - É o fim.mp4";
@@ -35,16 +40,19 @@ export class AppComponent {
   showSnack() {
     var x = document.getElementById("snackbar");
     x.className = "show";
-    setTimeout(function () { x.className = x.className.replace("show", ""); }, 25000);
+    setTimeout(function () { x.className = x.className.replace("show", ""); }, 22000);
   }
   showSnack2() {
     var x = document.getElementById("snackbar2");
     x.className = "show";
-    setTimeout(function () { x.className = x.className.replace("show", ""); }, 25000);
+    setTimeout(function () { x.className = x.className.replace("show", ""); }, 22000);
   }
   showSnack3() {
     var x = document.getElementById("snackbar3");
     x.className = "show";
-    setTimeout(function () { x.className = x.className.replace("show", ""); }, 25000);
+    setTimeout(function () { x.className = x.className.replace("show", ""); }, 22000);
+  }
+  showSnackAll() {
+
   }
 }

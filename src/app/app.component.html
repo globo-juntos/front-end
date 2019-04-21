@@ -6,7 +6,7 @@
   Your browser does not support HTML5 video.
 </video> -->
   <div class="embed-responsive embed-responsive-21by9 rounded">
-      <video #video  [autoplay]="true" (timeupdate)="setCurrentTime($event)" class="video">
+      <video #video controls (timeupdate)="setCurrentTime($event)" class="video">
           <source id="video1" src="{{vingadores}}" type="video/mp4" />
           Browser not supported
         </video>
